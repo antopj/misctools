@@ -4,21 +4,24 @@
 
 
 #considering current working directory name as site name /var/www/example.com/
+
 SITENAME=${PWD##*/}
 
-echo "WP_ENV=production" >>htdocs/.env
-echo "WP_HOME=https://$SITENAME" >>htdocs/.env
-echo "WP_SITEURL=https://$SITENAME/wp" >>htdocs/.env
+echo "WP_ENV=dev" >>htdocs/.env
+echo "WP_HOME=http://$SITENAME" >>htdocs/.env
+echo "WP_SITEURL=http://$SITENAME/wp" >>htdocs/.env
 
-echo "###">>htdocs/.env
+echo "#-----------\n">>htdocs/.env
 
 echo "DB_NAME=`cat wp-config.php | grep DB_NAME | cut -d \' -f 4`">> htdocs/.env
 echo "DB_USER=`cat wp-config.php | grep DB_USER | cut -d \' -f 4`">> htdocs/.env
 echo "DB_PASSWORD=`cat wp-config.php | grep DB_PASSWORD | cut -d \' -f 4`">> htdocs/.env
 echo "DB_HOST=`cat wp-config.php | grep DB_HOST | cut -d \' -f 4`">> htdocs/.env
 
+echo "#-----------\n">>htdocs/.env
+
 #Download salts and save to file
-wget -O /tmp/wp.keys https://api.wordpress.org/secret-key/1.1/salt/
+wget -qO /tmp/wp.keys https://api.wordpress.org/secret-key/1.1/salt/
 
 #parse the key-values into variables
 
@@ -49,7 +52,6 @@ rm /tmp/wp.keys
 echo "DISABLE_WP_CRON=true" >> htdocs/.env
 echo "WP_CACHE_KEY_SALT=$SITENAME:" >> htdocs/.env
 
-echo "###" >> htdocs/.env
+echo "#-----------\n">>htdocs/.env
 
-
-echo "\n\n.env Generated, using https as scheme in WP_HOME and WP_SITEURL...\n\n"
+echo "\n\n.env Generated, using http a scheme in WP_HOME and WP_SITEURL...\n\n"
