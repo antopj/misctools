@@ -26,14 +26,14 @@ wget -qO /tmp/wp.keys https://api.wordpress.org/secret-key/1.1/salt/
 
 #parse the key-values into variables
 
-echo "AUTH_KEY=$(cat /tmp/wp.keys |grep -w AUTH_KEY | cut -d \' -f 4)" >>  .env
-echo "SECURE_AUTH_KEY=$(cat /tmp/wp.keys |grep -w SECURE_AUTH_KEY | cut -d \' -f 4)" >>  .env
-echo "LOGGED_IN_KEY=$(cat /tmp/wp.keys |grep -w LOGGED_IN_KEY | cut -d \' -f 4)" >>  .env
-echo "NONCE_KEY=$(cat /tmp/wp.keys |grep -w NONCE_KEY | cut -d \' -f 4)" >>  .env
-echo "AUTH_SALT=$(cat /tmp/wp.keys |grep -w AUTH_SALT | cut -d \' -f 4)" >>  .env
-echo "SECURE_AUTH_SALT=$(cat /tmp/wp.keys |grep -w SECURE_AUTH_SALT | cut -d \' -f 4)" >>  .env
-echo "LOGGED_IN_SALT=$(cat /tmp/wp.keys |grep -w LOGGED_IN_SALT | cut -d \' -f 4)" >>  .env
-echo "NONCE_SALT=$(cat /tmp/wp.keys |grep -w NONCE_SALT | cut -d \' -f 4)" >>  .env
+echo "AUTH_KEY=\"$(cat /tmp/wp.keys |grep -w AUTH_KEY | cut -d \' -f 4)\"" >>  .env
+echo "SECURE_AUTH_KEY=\"$(cat /tmp/wp.keys |grep -w SECURE_AUTH_KEY | cut -d \' -f 4)\"" >>  .env
+echo "LOGGED_IN_KEY=\"$(cat /tmp/wp.keys |grep -w LOGGED_IN_KEY | cut -d \' -f 4)\"" >>  .env
+echo "NONCE_KEY=\"$(cat /tmp/wp.keys |grep -w NONCE_KEY | cut -d \' -f 4)\"" >>  .env
+echo "AUTH_SALT=\"$(cat /tmp/wp.keys |grep -w AUTH_SALT | cut -d \' -f 4)\"" >>  .env
+echo "SECURE_AUTH_SALT=\"$(cat /tmp/wp.keys |grep -w SECURE_AUTH_SALT | cut -d \' -f 4)\"" >>  .env
+echo "LOGGED_IN_SALT=\"$(cat /tmp/wp.keys |grep -w LOGGED_IN_SALT | cut -d \' -f 4)\"" >>  .env
+echo "NONCE_SALT=\"$(cat /tmp/wp.keys |grep -w NONCE_SALT | cut -d \' -f 4)\"" >>  .env
 
 
 #2nd Method for Salts
