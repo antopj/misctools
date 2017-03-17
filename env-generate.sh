@@ -8,7 +8,7 @@
 
 SITENAME=${PWD##*/}
 
-echo "WP_ENV=dev" >> .env
+echo "WP_ENV=dev" > .env
 echo "WP_HOME=http://$SITENAME" >> .env
 echo "WP_SITEURL=http://$SITENAME/wp" >> .env
 
